@@ -3,11 +3,13 @@ import 'package:camera/camera.dart';
 import 'dart:async';
 import 'dart:ui';
 import 'package:flutter_background_service/flutter_background_service.dart';
+import 'package:flutter/services.dart';
 
 late List<CameraDescription> _cameras;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await initializeService();
   _cameras = await availableCameras();
   runApp(const MyApp());
@@ -80,6 +82,7 @@ class _CameraAppState extends State<CameraApp> {
     super.initState();
     controller = CameraController(_cameras[0], ResolutionPreset.max);
     controller.initialize().then((_) {
+    controller.lockCaptureOrientation(DeviceOrientation.portraitUp);
       if (!mounted) {
         return;
       }
