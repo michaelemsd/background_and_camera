@@ -36,7 +36,6 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_background_service: ^5.1.0
   camera: ^0.11.0+2
-  camera_android_camerax: ^0.6.10+3
 
 dependencies_overrides:
   camera_android_camerax: ^0.6.10+3
