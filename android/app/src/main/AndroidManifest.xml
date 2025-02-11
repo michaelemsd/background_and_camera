@@ -1,19 +1,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-
+    
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" /> <!--add for android 14-->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"/> <!--add for android 14-->
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.CAMERA" />
-
-
+    
     <application
         android:label="camera_and_background"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <service
-          android:name=".BackgroundDataSynService"
-          android:foregroundServiceType="dataSync"
-          android:exported="false">
+            android:name="id.flutter.flutter_background_service.BackgroundService"
+            android:foregroundServiceType="dataSync">
         </service>
         <activity
             android:name=".MainActivity"
